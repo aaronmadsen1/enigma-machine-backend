@@ -31,15 +31,15 @@ message_schema = MessageSchema()
 messages_schema = MessageSchema(many=True)
 
 # * * * * * * * * * * * * * MAY NOT NEED * * * * * * * * * * * * * * * 
-# @app.route("/messages", methods=["GET"])
-# def get_messages():
-#   all_Messages = Message.query.all()
-#   result = messages_schema.dump(all_messages)
-#   return jsonify(result)
+@app.route("/messages", methods=["GET"])
+def get_messages():
+  all_Messages = Message.query.all()
+  result = messages_schema.dump(all_messages)
+  return jsonify(result)
 
 
 @app.route("/message/<id>", methods=["GET"])
-def get_message():
+def get_message(id):
   message = Message.query.get(id)
   return message_schema.jsonify(message)
 
