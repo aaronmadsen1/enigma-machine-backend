@@ -17,7 +17,7 @@ ma = Marshmallow(app)
 class Message(db.Model):
   __tablename__ = "messages"
   id = db.Column(db.Integer, primary_key=True)
-  encryption = db.Column(db.String(1000))
+  encryption = db.Column(db.Text)
 
   def __init__(self, encryption):
     self.encryption = encryption
