@@ -34,7 +34,7 @@ messages_schema = MessageSchema(many=True)
 @app.route("/messages", methods=["GET"])
 def get_messages():
   all_Messages = Message.query.all()
-  result = messages_schema.dump(all_messages)
+  result = messages_schema.dump(all_Messages)
   return jsonify(result)
 
 
